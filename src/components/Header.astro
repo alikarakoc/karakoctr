@@ -62,37 +62,26 @@ import { SITE_TITLE } from '../consts';
 </header>
 <style>
 	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-		position: sticky;
-		top: 0;
-		z-index: 100;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1em;
-	}
-	.nav-top {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		width: 100%;
-		gap: 1em;
-	}
-	.menu-toggle {
-		display: none;
+		import HeaderLink from './HeaderLink.astro';
+		import { SITE_TITLE } from '../consts';
+
+		let menuOpen = false;
+			<nav>
+				<div class="nav-top">
+					<h2><a href="/">ali karakoç</a></h2>
+					<button class="menu-toggle" aria-label="Menüyü Aç/Kapat" on:click={() => menuOpen = !menuOpen}>
+						<svg width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6h18M3 12h18M3 18h18"/></svg>
+					</button>
+				</div>
+				<div class:list={["internal-links", { open: menuOpen }]}>
+					<HeaderLink href="/">anasayfa</HeaderLink>
+					<HeaderLink href="/blog">makale</HeaderLink>
+					<HeaderLink href="/about">hakkımda</HeaderLink>
+				</div>
+				<div class="social-links">
+					...existing code...
+				</div>
+			</nav>
 		background: none;
 		border: none;
 		cursor: pointer;

@@ -30,7 +30,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			main {
 				max-width: 960px;
 				margin: 0 auto;
-				padding: 2rem 1rem 3rem 1rem;
+				padding: 1.5rem 1rem 2.5rem 1rem;
 			}
 			.hero {
 				display: grid;
@@ -41,11 +41,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			.hero h1 {
 				margin: 0 0 .5rem 0;
 				font-size: 2.2rem;
+				line-height: 1.2;
 			}
 			.hero p.lead {
 				margin: 0 0 1rem 0;
 				color: rgb(var(--gray-dark));
 				font-size: 1.05rem;
+				line-height: 1.6;
 			}
 			.hero-actions {
 				display: flex;
@@ -86,8 +88,62 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			.card h3 { margin: .2rem 0 .4rem 0; font-size: 1.1rem; text-decoration: none; color: rgb(var(--black)); }
 			.card p { margin: 0; color: rgb(var(--gray-dark)); font-size: .95rem; text-decoration: none; }
 			.card:hover { border-color: rgba(0,0,0,.12); box-shadow: 0 8px 24px rgba(0,0,0,.08); transform: translateY(-2px); }
-			@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
-			@media (max-width: 720px) { .cards { grid-template-columns: 1fr; } }
+			
+			@media (max-width: 900px) { 
+				.hero { 
+					grid-template-columns: 1fr; 
+					gap: 1.5rem;
+					text-align: center;
+				}
+				.portrait {
+					order: -1;
+				}
+				.portrait img {
+					max-width: 280px;
+				}
+			}
+			@media (max-width: 768px) {
+				main {
+					padding: 1rem 0.75rem 2rem 0.75rem;
+				}
+				.hero h1 {
+					font-size: 1.8rem;
+				}
+				.hero p.lead {
+					font-size: 1rem;
+				}
+				.hero-actions {
+					justify-content: center;
+				}
+				.hero-actions a {
+					padding: .6rem 1rem;
+					font-size: 0.95rem;
+				}
+				.section {
+					margin-top: 2rem;
+				}
+				.cards { 
+					grid-template-columns: 1fr; 
+					gap: 0.75rem;
+				}
+				.card {
+					padding: 1.25rem;
+				}
+			}
+			@media (max-width: 480px) {
+				.hero h1 {
+					font-size: 1.6rem;
+				}
+				.hero-actions {
+					flex-direction: column;
+					align-items: center;
+				}
+				.hero-actions a {
+					width: 100%;
+					max-width: 200px;
+					justify-content: center;
+				}
+			}
 		</style>
 	</head>
 	<body>

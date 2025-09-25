@@ -69,6 +69,31 @@ const { title, description, pubDate, updatedDate, heroImage, heroVariant } = Ast
 			.last-updated-on {
 				font-style: italic;
 			}
+			
+			@media (max-width: 768px) {
+				main {
+					width: calc(100% - 1em);
+					margin: 0 0.5em;
+				}
+				.prose {
+					width: 100%;
+					padding: 0.5em;
+				}
+				.hero-image.is-profile img {
+					max-width: 300px;
+				}
+				.title h1 {
+					font-size: 1.8rem;
+				}
+			}
+			@media (max-width: 480px) {
+				.hero-image.is-profile img {
+					max-width: 250px;
+				}
+				.title h1 {
+					font-size: 1.5rem;
+				}
+			}
 		</style>
 	</head>
 

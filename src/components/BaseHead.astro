@@ -39,6 +39,13 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
+<!-- Robots -->
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+<!-- Locale -->
+<meta property="og:locale" content="tr_TR" />
+<meta name="language" content="tr" />
+
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />

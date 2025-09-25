@@ -6,44 +6,139 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="tr">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<script type="application/ld+json">
+			{JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "Person",
+				name: "Ali Karakoç",
+				description: SITE_DESCRIPTION,
+				url: "https://www.karakoc.tr/",
+				image: "https://www.karakoc.tr/ali-karakoc-software-developer.png",
+				jobTitle: "Yazılım Geliştirici (.NET)",
+				worksFor: { "@type": "Organization", name: "Freelance" },
+				sameAs: [
+					"https://github.com/alikarakoc/",
+					"https://www.linkedin.com/in/alikarakoc/",
+					"https://x.com/alikarakoc00"
+				]
+			})}
+		</script>
+		<style>
+			main {
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 2rem 1rem 3rem 1rem;
+			}
+			.hero {
+				display: grid;
+				grid-template-columns: 1.2fr 0.8fr;
+				gap: 2rem;
+				align-items: center;
+			}
+			.hero h1 {
+				margin: 0 0 .5rem 0;
+				font-size: 2.2rem;
+			}
+			.hero p.lead {
+				margin: 0 0 1rem 0;
+				color: rgb(var(--gray-dark));
+				font-size: 1.05rem;
+			}
+			.hero-actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: .5rem;
+				margin-top: 1rem;
+			}
+			.hero-actions a {
+				display: inline-flex;
+				align-items: center;
+				gap: .45rem;
+				padding: .5rem .75rem;
+				border-radius: 8px;
+				text-decoration: none;
+				border: 1px solid rgba(0,0,0,.10);
+				color: rgb(var(--black));
+				background: #fff;
+				box-shadow: 0 4px 12px rgba(0,0,0,.04);
+				transition: box-shadow .2s ease, transform .2s ease, background-color .2s ease;
+			}
+			.hero-actions a.primary { color: rgb(var(--accent)); }
+			.hero-actions a:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.08); background: #fafafa; }
+			.hero-actions a svg { width: 16px; height: 16px; }
+			.portrait {
+				text-align: center;
+			}
+			.portrait img {
+				width: 100%;
+				max-width: 360px;
+				border-radius: 18px;
+				box-shadow: 0 10px 30px rgba(0,0,0,.15);
+				object-fit: cover;
+				object-position: center top;
+			}
+			.section { margin-top: 3rem; }
+			.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+			.card { padding: 1rem; border: 1px solid rgba(0,0,0,.06); border-radius: 12px; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.06); color: rgb(var(--black)); text-decoration: none; }
+			.card h3 { margin: .2rem 0 .4rem 0; font-size: 1.1rem; text-decoration: none; color: rgb(var(--black)); }
+			.card p { margin: 0; color: rgb(var(--gray-dark)); font-size: .95rem; text-decoration: none; }
+			.card:hover { border-color: rgba(0,0,0,.12); box-shadow: 0 8px 24px rgba(0,0,0,.08); transform: translateY(-2px); }
+			@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+			@media (max-width: 720px) { .cards { grid-template-columns: 1fr; } }
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero">
+				<div>
+					<h1>Ali Karakoç — Yazılım Geliştirici (.NET)</h1>
+					<p class="lead">
+						ERP, CRM, özel CMS ve e‑ticaret projelerinde 10+ yıllık deneyim. Şu anda
+						<strong>backend geliştirme</strong> odaklı çalışıyor; .NET Core, .NET MVC ve Dapper ile üretimde
+						sistemler geliştiriyorum. Veritabanı tarafında MSSQL, PostgreSQL ve Redis; önyüzde
+						JavaScript/TypeScript ve Angular ile çalışıyorum.
+					</p>
+					<div class="hero-actions">
+						<a class="primary" href="https://github.com/alikarakoc/" target="_blank">
+							<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+							GitHub
+						</a>
+						<a class="secondary" href="https://www.linkedin.com/in/alikarakoc/" target="_blank">
+							<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M1.146 1.146C1.523.77 2.06.5 2.75.5s1.227.27 1.604.646c.377.377.646.914.646 1.604 0 .69-.27 1.227-.646 1.604-.377.377-.914.646-1.604.646s-1.227-.27-1.604-.646C.77 3.977.5 3.44.5 2.75c0-.69.27-1.227.646-1.604zM.5 5.5h4.5v10H.5v-10zm6 0h4.3v1.367h.062c.598-1.133 2.062-2.33 4.238-2.33 4.533 0 5.362 2.983 5.362 6.858V15.5h-4.5v-4.7c0-1.122-.02-2.566-1.563-2.566-1.566 0-1.805 1.223-1.805 2.484V15.5H6.5v-10z"/></svg>
+							LinkedIn
+						</a>
+						<a class="secondary" href="https://wa.me/905344809133" target="_blank">
+							<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M19.11 17.63c-.27-.14-1.6-.79-1.84-.88-.24-.09-.42-.14-.6.14-.18.27-.69.88-.84 1.06-.15.18-.31.2-.58.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.47-1.84-.15-.27-.02-.42.11-.56.11-.11.24-.29.36-.44.12-.15.16-.24.24-.41.08-.16.04-.31-.02-.44-.07-.14-.6-1.45-.82-1.99-.22-.53-.44-.46-.6-.46-.16 0-.31-.01-.48-.01-.17 0-.44.06-.67.31-.24.27-.91.89-.91 2.16 0 1.27.93 2.5 1.06 2.67.13.18 1.83 2.8 4.44 3.92 1.64.7 2.28.76 3.1.64.5-.08 1.6-.65 1.83-1.27.23-.62.23-1.16.16-1.27-.07-.11-.25-.18-.52-.31zM16 3C9.37 3 4 8.37 4 15c0 2.38.78 4.58 2.11 6.37L4 29l7.78-2.05C13.5 27.64 14.72 28 16 28c6.63 0 12-5.37 12-12S22.63 3 16 3zm0 22c-1.16 0-2.24-.25-3.22-.69l-.23-.11-4.62 1.22 1.24-4.5-.12-.23C8.59 19.74 8 17.94 8 16 8 10.48 12.48 6 18 6s10 4.48 10 10-4.48 10-10 10z"/></svg>
+							WhatsApp
+						</a>
+					</div>
+				</div>
+				<div class="portrait">
+					<img src="/ali-karakoc-software-developer.png" alt="Ali Karakoç" width="360" height="360" />
+				</div>
+			</section>
+
+			<section class="section">
+				<h2>Öne Çıkanlar</h2>
+				<div class="cards">
+					<a class="card" href="/blog/quick-messaging-for-whatsapp/">
+						<h3>Quick Messaging for WhatsApp</h3>
+						<p>WhatsApp Web'de kişi eklemeden hızlı mesajlaşma.</p>
+					</a>
+					<a class="card" href="/blog/privacy-for-chatgpt/">
+						<h3>Privacy for ChatGPT</h3>
+						<p>Sohbet geçmişi ve alanları gizleyerek daha özel bir deneyim.</p>
+					</a>
+					<a class="card" href="https://github.com/alikarakoc/YazilimMulakatSorulari" target="_blank">
+						<h3>Yazılım Mülakat Soruları</h3>
+						<p>Teknik mülakatlarda karşılaşabileceğiniz soru ve cevaplar.</p>
+					</a>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>

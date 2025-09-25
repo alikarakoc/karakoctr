@@ -5,7 +5,12 @@ import { SITE_TITLE } from '../consts';
 
 <header>
 	<nav>
-		<h2><a href="/">ali karakoç</a></h2>
+		<div class="nav-top">
+			<h2><a href="/">ali karakoç</a></h2>
+			<button class="menu-toggle" aria-label="Menüyü Aç/Kapat" onclick="document.querySelector('.internal-links').classList.toggle('open')">
+				<svg width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6h18M3 12h18M3 18h18"/></svg>
+			</button>
+		</div>
 		<div class="internal-links">
 			<HeaderLink href="/">anasayfa</HeaderLink>
 			<HeaderLink href="/blog">makale</HeaderLink>
@@ -50,12 +55,14 @@ import { SITE_TITLE } from '../consts';
 		padding: 0 1em;
 		background: white;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		position: sticky;
+		top: 0;
+		z-index: 100;
 	}
 	h2 {
 		margin: 0;
 		font-size: 1em;
 	}
-
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
@@ -64,12 +71,34 @@ import { SITE_TITLE } from '../consts';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 1em;
+	}
+	.nav-top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		gap: 1em;
+	}
+	.menu-toggle {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5em;
+	}
+	.internal-links {
+		display: flex;
+		gap: 1em;
+		align-items: center;
+		transition: max-height 0.3s ease;
 	}
 	nav a {
 		padding: 1em 0.5em;
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		font-size: 1em;
 	}
 	nav a.active {
 		text-decoration: none;
@@ -80,8 +109,44 @@ import { SITE_TITLE } from '../consts';
 		display: flex;
 	}
 	@media (max-width: 720px) {
+		.nav-top {
+			width: 100%;
+		}
+		.menu-toggle {
+			display: block;
+		}
+		.internal-links {
+			flex-direction: column;
+			gap: 0.5em;
+			align-items: flex-start;
+			max-height: 0;
+			overflow: hidden;
+			width: 100%;
+			background: white;
+			box-shadow: 0 2px 8px rgba(var(--black), 5%);
+			position: absolute;
+			left: 0;
+			top: 100%;
+			z-index: 99;
+			border-radius: 0 0 8px 8px;
+		}
+		.internal-links.open {
+			max-height: 300px;
+			padding: 1em 0.5em;
+			box-shadow: 0 4px 16px rgba(var(--black), 10%);
+		}
 		.social-links {
 			display: none;
+		}
+		nav {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5em;
+			position: relative;
+		}
+		nav a {
+			padding: 0.5em 0;
+			font-size: 1em;
 		}
 	}
 </style>

@@ -129,10 +129,50 @@ hr {
 }
 @media (max-width: 720px) {
   body {
-    font-size: 18px;
+    font-size: 16px;
+    padding: 0;
   }
   main {
-    padding: 1em;
+    width: 100%;
+    max-width: 100%;
+    padding: 1em 0.5em;
+    margin: 0;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  h3 {
+    font-size: 1.2em;
+  }
+  .internal-links {
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: flex-start;
+  }
+  .social-links {
+    flex-direction: row;
+    gap: 0.5em;
+    justify-content: flex-start;
+    margin-top: 1em;
+  }
+  header {
+    padding: 0.5em;
+  }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+  }
+  nav a {
+    padding: 0.5em 0;
+    font-size: 1em;
+  }
+  footer {
+    padding: 2em 0.5em 4em 0.5em;
+    font-size: 0.95em;
   }
 }
 
